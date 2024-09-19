@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run a one-liner script
+      run: echo "Hello, GitHub Actions"
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  # Installs dependencies inside the VM
+
+    - name: Run tests
+      run: pytest
